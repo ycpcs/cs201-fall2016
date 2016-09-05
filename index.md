@@ -16,6 +16,7 @@ Welcome to the website for CS 201, Fundamentals of Computer Science II, at York 
 * [Assignments](assign/index.html)
 * [Labs](labs/index.html)
 * [Resources](resources/index.html)
+* [Tutoring](tutoring.html)
 * [Marmoset (submission server)](https://cs.ycp.edu/marmoset)
 * [CloudCoder (practice problems)](https://cs.ycp.edu/cloudcoder)
 * [CodingBat Java recursion problems](http://codingbat.com/java/Recursion-1)
