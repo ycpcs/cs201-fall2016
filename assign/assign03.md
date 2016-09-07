@@ -3,7 +3,7 @@ layout: default
 title: "Assignment 3: Disks Game"
 ---
 
-**Due**: Monday, Sept 26th by 11:59 PM
+**Due**: Wednesday, Sept 28th by 11:59 PM
 
 Acknowledgment: The idea for this assignment comes from [Tom Ellman](http://pages.vassar.edu/tomellman/) at Vassar College.
 
@@ -50,9 +50,15 @@ The goal is to place disks of random sizes and colors onto the game board so tha
 1.  no disk overlaps any other disk, and
 2.  every disk lies entirely within the rectangular game board
 
-The solid disks are the ones that have been successfully placed. The black disk outline follows the mouse and shows where the next disk could be placed. The number in the lower right-hand corner shows the number of disks that have been successfully placed.
+The solid disks are the ones that have been successfully placed. The black disk outline follows the mouse and shows where the next disk could be placed. The number in the lower right-hand corner shows the number of disks that have been successfully placed.  The pink bar at the bottom of the window is a bar showing how much time remains to place the current disk.
 
-The game ends when a disk is placed in a position where it overlaps another disk, or is not entirely placed within the game board:
+The game ends when a disk
+
+* is placed in a position where it overlaps another disk,
+* is not entirely placed within the game board, or
+* is not placed before the countdown timer expires
+
+When the game ends, a game over message should be displayed:
 
 > ![image](img/assign03/gameover.png)
 
@@ -70,6 +76,15 @@ Specifications and Hints
 You will make all of your code changes to the **DisksPanel** class, which implements the game play.
 
 You should add whatever fields are necessary to represent the state of the game. You will probably want to use an array of **Disk** elements to represent the disks that have been placed.
+
+### Constructor
+
+The constructor should initialize all of the fields of **DisksPanel**.  This could include:
+
+* create a new random **Disk** object and store a reference to it in a field
+* create an array of **Disk** references and store a reference to it in a field
+* start the count of how many disks have been placed at 0
+* initialize the initial timeout duration and the amonut of time remaining to place the current disk (these could be **int** fields)
 
 ### Mouse events
 
@@ -127,7 +142,19 @@ disks = new Disk[500];
 diskCount = 0;
 {% endhighlight %}
 
-When a disk is placed successfully, a reference to the new **Disk** object should be added to the array.  The **diskCount** field can be used to keep track of how many disks have been placed.
+When a disk is placed successfully, a reference to the new **Disk** object should be added to the array.  The **diskCount** field can be used to keep track of how many disks have been placed.  Note that the **diskCount** field also indicates where in the array the next disk should be placed.
+
+### Timer events
+
+The skeleton code for the **DisksPanel** class creates an instance of the **javax.swing.Timer** class and stores it in a field called **timer**.  It also sets up an evvent handler which calls the **handleTimerEvent** method when the timer fires.  The timer is configured to fire after a delay of 0.1 seconds.  So, you can think of one timer "tick" as being one tenth of a second.
+
+You should use an **int** field to keep track of how many ticks the player has left to place the current disk.  Each time a timer event occurs, you should decrement this field.  If the value of the field reaches 0, then the game is over because the timeout expired.
+
+When the game starts (i.e., in the **DisksPanel** constructor), you should call **timer.start()** to start the timer running.  By default, timer events will be generated repeatedly, so you don't need to restart the timer when a timer event occurs.
+
+When a disk is placed successfully, you can call **timer.stop()** followed by **timer.start()** to make sure that the user receives the full amount of time to place the next disk.  Also, you should reset the field that keeps track of how many ticks the user has remaining to place the next disk.
+
+For extra credit, you can make the game more challenging by decreasing the number of ticks available each time the user places a disk successfully.
 
 ### The paint method
 
@@ -151,6 +178,14 @@ g.fillOval((int) x, (int) y, (int) w, (int) h);
 
 Also note that the x/y coordinates of a disk represent its center, but the x/y coordinates in a call to **fillOval** are the upper left corner of a rectangle surrounding the oval being drawn.  You will need to adjust the coordinates accordingly when drawing a disk.
 
+You should draw the bar indicating how much time the user has left to place the next disk using a partially transparent color.  Colors can have an "alpha channel", which is a value between 0 and 255, where 255 is completely opaque and 0 is completely transparent.  In our solution, we used
+
+{% highlight java %}
+Color barColor = new Color(255, 23, 23, 63);
+{% endhighlight %}
+
+as the bar color.
+
 Running the program
 -------------------
 
@@ -161,12 +196,18 @@ Grading
 
 The grading will be done as follows:
 
--   Displaying the outline of the next disk to be placed - 15%
--   Allowing disks to be placed, drawing them - 30%
--   Detecting overlap and out-of-bounds - 20%
+-   Displaying the outline of the next disk to be placed - 10%
+-   Allowing disks to be placed, drawing them - 20%
+-   Detecting overlap and out-of-bounds - 15%
+-   Keeping track of time remaining to place disk - 10%
+-   Displaying bar to indicate remaining time - 10%
 -   Keeping score, displaying score - 15%
 -   Detecting end of game, displaying "Game over" - 20%
--   Growing the disks array as needed, rather than preallocating a large array - 5%
+
+Extra credit options:
+
+-   Growing the disks array as needed, rather than preallocating a large array - up to 5%
+-   Decreasing the timeout each time a disk is placed successfully - up to 10%
 
 Also note that points may be deducted for poor coding style.
 
