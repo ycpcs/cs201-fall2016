@@ -208,13 +208,13 @@ And here are the details:
 
 * As the mouse moves, display a black circle centered around the cursor.
 
-* When the user clicks the mouse, check if the disk overlaps any existing disks, and if it is out-of-bounds.  If so, the game is over.  If not, place a disk of the same size as the circle that was around the cursor at the location of the mouse click.  Give the disk a color from the DiskColor pallette.
+* When the user clicks the mouse, if the circle overlaps any existing disks or is out-of-bounds, the game is over.  If not, place a disk of the same size as the circle centered on the location of the mouse click.  Give the disk a color from the DiskColor pallette.
 
-* Generate a new circle of a random size, and repeat.
+* Generate a new circle of a random size, and repeat the above.
 
 * Display the count of disks placed.
 
-* Run a timer to limit how long the user has to place a disk, If it times out, the game is over.  Otherwise restart the timer each time a disk is placed.
+* Run a timer to limit how long the user has to place a disk. If the timer times out before the new disk is placed, the game is over.  Otherwise, restart the timer each time a disk is placed.
 
 * Display a timer bar indicating how much time is left to place a disk.
 
@@ -228,23 +228,23 @@ How should we approach implementing this program, with all of its details?  Here
 
 1. Now add the Disk array, and save each Disk in the array as the mouse is clicked.  Again, don't worry about any other details, like random size, color, out-of-bounds, or overlap.
 
-1. Now paint the DiskArray to the board, using the Disk information as it stored for each Disk in the Disk array.  Note that all of the Disks will have the same size and color at this time.
+1. Now paint the DiskArray to the board, using the Disk information as it is stored for each Disk in the Disk array.  Note that all of the Disks will have the same size and color at this time.
 
 1. Add in the RANDOM radius - when the mouse is clicked, create the new circle with a RANDOM radius (10 to 44) that follows the mouse.  Make sure that when each Disk is saved to the Disk array, it has the same radius as the circle did.
 
-1. Now generate colors for the Disks.  These could be random, or follow a specific order through the DiskColor array.  The following code may look somewhat strange, but it returns the ith color directly from the DiskColor enum: 
+1. Now generate colors for the Disks.  These could be random, or follow a specific order through the DiskColor array.  The following code may look somewhat strange, but it returns the i<sup>th</sup> color directly from the DiskColor enum: 
     
         DiskColor newDiskColor = DiskColor.values()[i];
                 
 1. Add displaying the count of the Disks.
 
-1. Now add the out-of-bound test.  Where should that code be placed - before or after you put the Disk in the Disk array?  Make sure to end the game when an out-of-bounds condition occurs.
+1. Now add the out-of-bounds test.  Where should that code be placed - before or after you put the Disk in the Disk array?  Make sure to end the game when an out-of-bounds condition occurs.
 
 1. Now add the overlaps test.  Remember to check the disk being placed against all of the Disks in the Disk array so far.  Where does the code for that test go - before or after you put the Disk in the Disk array?  Make sure to end the game when an overlap is detected.
 
-1. Display "Game Over" when the game has ended.
+1. Display "Game Over" when the game has ended.  The game should no longer respond to events.
 
-1. Display the Timer bar - don't run the timer yet, just display the bar.
+1. Display the Timer bar.  Don't run the timer yet, just display the bar.
 
 1. Stop and restart the timer on each mouse click.  Don't worry about keeping track of time, yet.
 
