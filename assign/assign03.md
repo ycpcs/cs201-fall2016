@@ -191,6 +191,58 @@ Running the program
 
 To run the program, right-click on **DisksApp.java** and choose **Run as&rarr;Java Application**.
 
+An Agile Approach to Developing the Disk Game Assignment
+--------------------------------------------------------
+
+The code for this assignment, as provided, compiles and runs.  It doesn't do much - it only paints a grey board and it doesn't process any events - but it does run.  Let's take an agile programming approach to building this assignment.
+
+One of the tenets of agile programming is to always have something running and then make small incremental changes, while maintaining a running application.  So, let's build this program in small steps, so that the code is always working - and each step adds a little bit more of the required functionality.
+
+But first, you need to have a fundamental understanding of the problem - at a high level.  Can you describe what it is you are being asked to do - in your own words - without looking at the problem description?  Essentially, you need to first study the problem description, roll it the problem around in your head, and draw it on paper or on a white board, before trying to code it.  If you can't describe the problem to your friends, your family, or your classmates, then you don't have a fundamental understanding of the problem.
+
+Here is what a description of the problem might look like:
+
+    Create a game where colored disks of random sizes are placed on a board.  The game continues as long as the newly placed disk does not overlap with any of the other disks, and the new disk is completely inside the boundaries of the board, and the time allowed to place the disk has not run out.
+
+And here are the details:
+   a) As the mouse moves, display a black circle centered around the cursor.
+   b) When the user clicks the mouse, check if the disk overlaps any existing disks, and if it is out-of-bounds.  If so, the game is over.  If not, place a disk of the same size as the circle that was around the cursor at the location of the mouse click.  Give the disk a color from the DiskColor pallette.
+   c) Generate a new circle of a random size, and repeat.
+   d) Display the count of disks placed.
+   e) Run a timer to limit how long the user has to place a disk, If it times out, the game is over.  Otherwise restart the timer each time a disk is placed.
+   f) Display a timer bar indicating how much time is left to place a disk.
+   g) When the game is over, display "Game Over".
+
+How should we approach implementing this program, with all of its details?  Here is a suggested order for implementation of the required features:
+    1) Just paint a black circle centered around the mouse - a fixed size circle - don't worry about the details yet.  Verify that the mouse is centered inside the circle, and that the circle follows the mouse.  Don't move on to the next step until this step performs correctly.
+    2) Next, for a mouse click, just place a single disk on the board, with the current size of the circle, and with a fixed color.  Don't worry about saving it in the disk array, or random size, or color, or any of the other details - just keep track of a single disk, and paint it to the board.
+    3) Now add the Disk array, and save each Disk in the array as the mouse is clicked.  Again, don't worry about any other details, like random size, color, out-of-bounds, or overlap.
+    4) Now paint the DiskArray to the board, using the Disk information as it stored for each Disk in the Disk array.  Note that all of the Disks will have the same size and color at this time.
+    5) Add in the RANDOM radius - when the mouse is clicked, create the new circle with a RANDOM radius (10 - 44) that follows the mouse.  Make sure that when each Disk is saved to the Diks array, it has the same radius as the circle did.
+    6) Now generate colors for the Disks.  These could be random, or follow a specific order through the DiskColor array.  The following code looks kind of strange, but 
+                DiskColor.values()[i]
+        returns the ith color directly from the DiskColor enum.
+    7) Add displaying the count of the Disks.
+    8) Now add the out-of-bound test.  Where should that code be placed - before or after you put the Disk in the Disk array?  Make sure to end the game when an out-of-bounds condition occurs.
+    9) Now add the overlaps test.  Remember to check the disk being placed against all of the Disks in the Disk array so far.  Where does the code for that test go - before or after you put the Disk in the Disk array?  Make sure to end the game when an overlap is detected.
+    10) Display "Game Over" when the game has ended.
+    11) Display the Timer bar - don't run the timer yet, just display the bar.
+    12) Stop and restart the timer on each mouse click.  Don't worry about keeping track of time, yet.
+    13) Count the number of timer events.  Each event is 0.1 seconds (100 ms).
+    14) Reset the timer count each time a mouse click occurs.
+    15) Update the length of the timer bar to be proportional to the amout of time left before the timer runs out.
+    16) End the game when the timer reaches the time out value.    
+
+The basic strategy is to work on one task at a time, and get it working, before moving on to the next task.  Always get your code running correctly for the current task, first.
+
+Attach the major tasks first: circle follows mouse, paint a Disk where the circle was when the mouse was clicked, keep track of all Disks in the Disk array, etc...  first discover how each part works, and then add in the details.  Concentrate on one task at a time - small changes with frequent builds.
+
+Make changes in the code to as few places as possible at any one time - compile and run often - see that your changes work.  Tweak them as necessary until they do.
+
+Add fields as they become necessary - a reference to a disk you are currently placing, the Disk count, an array to hold the placed Disks, a timer count, an indication that the game is over.
+
+One other important step - save your work frequently.  As you get each important piece working, archive your project so that you can return to a previous working state if you irreversibly break your code while adding in the next component.  You can archive your project using different archive file names.
+
 Grading
 -------
 
