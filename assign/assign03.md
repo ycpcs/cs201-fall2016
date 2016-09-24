@@ -248,7 +248,7 @@ How should we approach implementing this program, with all of its details?  Here
 
 1. Stop and restart the timer on each mouse click.  Don't worry about keeping track of time, yet.
 
-1. Count the number of timer events.  Each event is 0.1 seconds (100 ms).
+1. To keep track of time, count the number of timer events.  Timer events occur 0.1 seconds (100 ms) apart.
 
 1. Reset the timer count each time a mouse click occurs.
 
