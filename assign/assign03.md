@@ -202,13 +202,13 @@ But first, you need to have a fundamental understanding of the problem - at a hi
 
 Here is what a description of the problem might look like:
 
-Create a game where colored disks of random sizes are placed on a board.  The game continues as long as the newly placed disk does not overlap with any of the other disks, and the new disk is completely inside the boundaries of the board, and the time allowed to place the disk has not run out.
+: Create a game where colored disks of random sizes are placed on a board.  The game continues as long as the newly placed disk does not overlap with any of the other disks, and the new disk is completely inside the boundaries of the board, and the time allowed to place the disk has not run out.
 
 And here are the details:
 
-* As the mouse moves, display a black circle centered around the cursor.
+a. As the mouse moves, display a black circle centered around the cursor.
 
-* When the user clicks the mouse, check if the disk overlaps any existing disks, and if it is out-of-bounds.  If so, the game is over.  If not, place a disk of the same size as the circle that was around the cursor at the location of the mouse click.  Give the disk a color from the DiskColor pallette.
+b. When the user clicks the mouse, check if the disk overlaps any existing disks, and if it is out-of-bounds.  If so, the game is over.  If not, place a disk of the same size as the circle that was around the cursor at the location of the mouse click.  Give the disk a color from the DiskColor pallette.
 
 * Generate a new circle of a random size, and repeat.
 
@@ -233,9 +233,9 @@ How should we approach implementing this program, with all of its details?  Here
 * Add in the RANDOM radius - when the mouse is clicked, create the new circle with a RANDOM radius (10 - 
 * that follows the mouse.  Make sure that when each Disk is saved to the Diks array, it has the same radius as the circle did.
 
-* Now generate colors for the Disks.  These could be random, or follow a specific order through the DiskColor array.  The following code may look somewhat strange, but ir returns the ith color directly from the DiskColor enum: 
+* Now generate colors for the Disks.  These could be random, or follow a specific order through the DiskColor array.  The following code may look somewhat strange, but it returns the ith color directly from the DiskColor enum: 
     
-        DiskColor.values()[i]
+        DiskColor newDiskColor = DiskColor.values()[i]
                 
 * Add displaying the count of the Disks.
 
