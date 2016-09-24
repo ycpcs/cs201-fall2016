@@ -232,7 +232,7 @@ How should we approach implementing this program, with all of its details?  Here
 
 1. Add in the RANDOM radius - when the mouse is clicked, create the new circle with a RANDOM radius (10 to 44) that follows the mouse.  Make sure that when each Disk is saved to the Disk array, it has the same radius as the circle did.
 
-1. Now generate colors for the Disks.  These could be random, or follow a specific order through the DiskColor array.  The following code may look somewhat strange, but it returns the i<sup>th</sup> color directly from the DiskColor enum: 
+1. Now generate colors for the Disks.  These could be random, or follow a specific order through the DiskColor array.  The following code may look somewhat strange, but it returns the ith color directly from the DiskColor enum: 
     
         DiskColor newDiskColor = DiskColor.values()[i];
                 
