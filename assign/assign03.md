@@ -206,9 +206,9 @@ Here is what a description of the problem might look like:
 
 And here are the details:
 
-a. As the mouse moves, display a black circle centered around the cursor.
+* As the mouse moves, display a black circle centered around the cursor.
 
-b. When the user clicks the mouse, check if the disk overlaps any existing disks, and if it is out-of-bounds.  If so, the game is over.  If not, place a disk of the same size as the circle that was around the cursor at the location of the mouse click.  Give the disk a color from the DiskColor pallette.
+* When the user clicks the mouse, check if the disk overlaps any existing disks, and if it is out-of-bounds.  If so, the game is over.  If not, place a disk of the same size as the circle that was around the cursor at the location of the mouse click.  Give the disk a color from the DiskColor pallette.
 
 * Generate a new circle of a random size, and repeat.
 
@@ -222,40 +222,39 @@ b. When the user clicks the mouse, check if the disk overlaps any existing disks
 
 How should we approach implementing this program, with all of its details?  Here is a suggested order for implementation of the required features:
 
-* Just paint a black circle centered around the mouse - a fixed size circle - don't worry about the details yet.  Verify that the mouse is centered inside the circle, and that the circle follows the mouse.  Don't move on to the next step until this step performs correctly.
+1. Just paint a black circle centered around the mouse - a fixed size circle - don't worry about the details yet.  Verify that the mouse is centered inside the circle, and that the circle follows the mouse.  Don't move on to the next step until this step performs correctly.
 
-* Next, for a mouse click, just place a single disk on the board, with the current size of the circle, and with a fixed color.  Don't worry about saving it in the disk array, or random size, or color, or any of the other details - just keep track of a single disk, and paint it to the board.
+1. Next, for a mouse click, just place a single disk on the board, with the current size of the circle, and with a fixed color.  Don't worry about saving it in the disk array, or random size, or color, or any of the other details - just keep track of a single disk, and paint it to the board.
 
-* Now add the Disk array, and save each Disk in the array as the mouse is clicked.  Again, don't worry about any other details, like random size, color, out-of-bounds, or overlap.
+1. Now add the Disk array, and save each Disk in the array as the mouse is clicked.  Again, don't worry about any other details, like random size, color, out-of-bounds, or overlap.
 
-* Now paint the DiskArray to the board, using the Disk information as it stored for each Disk in the Disk array.  Note that all of the Disks will have the same size and color at this time.
+1. Now paint the DiskArray to the board, using the Disk information as it stored for each Disk in the Disk array.  Note that all of the Disks will have the same size and color at this time.
 
-* Add in the RANDOM radius - when the mouse is clicked, create the new circle with a RANDOM radius (10 - 
-* that follows the mouse.  Make sure that when each Disk is saved to the Diks array, it has the same radius as the circle did.
+1. Add in the RANDOM radius - when the mouse is clicked, create the new circle with a RANDOM radius (10 to 44) that follows the mouse.  Make sure that when each Disk is saved to the Disk array, it has the same radius as the circle did.
 
-* Now generate colors for the Disks.  These could be random, or follow a specific order through the DiskColor array.  The following code may look somewhat strange, but it returns the ith color directly from the DiskColor enum: 
+1. Now generate colors for the Disks.  These could be random, or follow a specific order through the DiskColor array.  The following code may look somewhat strange, but it returns the i<sup>th</sup> color directly from the DiskColor enum: 
     
-        DiskColor newDiskColor = DiskColor.values()[i]
+        DiskColor newDiskColor = DiskColor.values()[i];
                 
-* Add displaying the count of the Disks.
+1. Add displaying the count of the Disks.
 
-* Now add the out-of-bound test.  Where should that code be placed - before or after you put the Disk in the Disk array?  Make sure to end the game when an out-of-bounds condition occurs.
+1. Now add the out-of-bound test.  Where should that code be placed - before or after you put the Disk in the Disk array?  Make sure to end the game when an out-of-bounds condition occurs.
 
-* Now add the overlaps test.  Remember to check the disk being placed against all of the Disks in the Disk array so far.  Where does the code for that test go - before or after you put the Disk in the Disk array?  Make sure to end the game when an overlap is detected.
+1. Now add the overlaps test.  Remember to check the disk being placed against all of the Disks in the Disk array so far.  Where does the code for that test go - before or after you put the Disk in the Disk array?  Make sure to end the game when an overlap is detected.
 
-* Display "Game Over" when the game has ended.
+1. Display "Game Over" when the game has ended.
 
-* Display the Timer bar - don't run the timer yet, just display the bar.
+1. Display the Timer bar - don't run the timer yet, just display the bar.
 
-* Stop and restart the timer on each mouse click.  Don't worry about keeping track of time, yet.
+1. Stop and restart the timer on each mouse click.  Don't worry about keeping track of time, yet.
 
-* Count the number of timer events.  Each event is 0.1 seconds (100 ms).
+1. Count the number of timer events.  Each event is 0.1 seconds (100 ms).
 
-* Reset the timer count each time a mouse click occurs.
+1. Reset the timer count each time a mouse click occurs.
 
-* Update the length of the timer bar to be proportional to the amout of time left before the timer runs out.
+1. Update the length of the timer bar to be proportional to the amout of time left before the timer runs out.
 
-* End the game when the timer reaches the time out value.    
+1. End the game when the timer reaches the time out value.    
 
 The basic strategy is to work on one task at a time, and get that task working, before moving on to the next task.  Always get your code running correctly for the current task, first.
 
