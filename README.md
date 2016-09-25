@@ -10,6 +10,8 @@ Unless indicated otherwise, all materials are
 
 Copyright (c) 2005&ndash;2016, David H. Hovemeyer &lt;<dhovemey@ycp.edu>&gt;
 
+Copyright (c) 2015&ndash;2016, Donald J. Hake &lt;<djhake2@ycp.edu>&gt;
+
 Unless indicated otherwise, all of the materials on this website
 are open source, and may be used, modified, and redistributed
 under the terms of the <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">CC-BY-SA 3.0</a>
