@@ -26,6 +26,7 @@ Welcome to the website for CS 201, Fundamentals of Computer Science II, at York 
 
 ## News
 
+* **Sep 29** &mdash; [Assignment 4](assign/assign04.html) has been posted.  There are two milestones, due dates to be determined.
 * **Sep 26** &mdash; A solution to the first practice exam has been posted on the [Practice Exams](practice/index.html) page.  Also, the programming question zipfile has been posted (we forgot to include this initially.)
 * **Sep 25** &mdash; [Assignment 3](assign/assign03.html) has been updated to include a detailed suggested approach.
 * **Sep 21** &mdash; Exam 1 will take place in class on Wednesday, Sept 28th.  A practice exam is available on the [Practice Exams](practice/index.html) page.
