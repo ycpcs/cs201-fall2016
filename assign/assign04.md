@@ -78,6 +78,35 @@ Moving a card transfers one or more cards from either the main deck or a tableau
 
 Following a move, the top card of the pile the card or cards were moved from is exposed (if the pile is not empty.)
 
+# Hints
+
+There is a **Color** enumeration to represent suit color, with two members, **Color.RED** and **Color.BLACK**.  You can call the **getColor** method on a **Suit** value to get the suit's color.  For example:
+
+{% highlight java %}
+Suit s1 = ..., s2 = ...; // assume that s1 and s2 are Suit values
+
+if (s1.getColor() == s2.getColor()) {
+    // s1 and s2 have the same suit color
+} else {
+    // s1 and s2 have different suit colors
+}
+{% endhighlight %}
+
+The rules for placing a card on a tableau or foundation pile involve comparing the rank of the placed card to the rank of the top card on the pile.  For example, to place a card on a tableau pile, its rank must be one less than the top card on the pile.  You can call the **ordinal** method on any enumeration value (including members of the **Rank** enumeration) to find out its position in the enumeration: the first member has ordinal value 0, the second has ordinal value 1, etc.  So, your code for placing a card on a tableau pile might look something like this:
+
+{% highlight java %}
+Card topCard = ...;   // top card on a tableau pile
+Card placeCard = ...; // card being placed on the tableau pile
+
+Rank topCardRank = topCard.getRank();
+Rank placeCardRank = placeCard.getRank();
+
+if (placeCardRank.ordinal() == topCardRank.ordinal() - 1) {
+    // card being placed has a rank one less than
+    // the top card's rank
+}
+{% endhighlight %}
+
 # Grading
 
 Milestone 1:
