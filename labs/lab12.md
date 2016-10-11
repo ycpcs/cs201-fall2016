@@ -89,17 +89,7 @@ Copy your Excel file into the Eclipse project. (Put it in the subdirectory of yo
 Submitting
 ==========
 
-When you are done, submit the lab to the Marmoset server using either of the methods below.
-
-<div class="callout">Make sure that you close Excel before attempting to submit the lab.</div>
-
-From Eclipse
-------------
-
-If you have the [Simple Marmoset Uploader Plugin](../resources.html) installed, select the project (**CS201\_Lab12**) in the package explorer and then press the blue up arrow button in the toolbar. Enter your Marmoset username and password when prompted.
-
-From a web browser
-------------------
+When you are done, submit the lab to the Marmoset server using the method below.
 
 Save the project (**CS201\_Lab12**) to a zip file by right-clicking it and choosing
 
