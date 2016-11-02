@@ -26,6 +26,7 @@ Welcome to the website for CS 201, Fundamentals of Computer Science II, at York 
 
 ## News
 
+* **Nov 2** &mdash; [Assignment 5](assign/assign05.html) has been posted, due date TBD.
 * **Oct 26** &mdash; A solution to the second practice exam is available on the [Practice Exams](practice/index.html) page.
 * **Oct 21** &mdash; Exam 2 will take place in class on Friday, Oct 28th.  A practice exam is available on the [Practice Exams](practice/index.html) page.
 * **Oct 6** &mdash; The due dates for the [Assignment 4](assign/assign04.html) milestones are Friday, Oct 14th for Milestone 1 and Friday, Nov 4th for Milestone 2.
