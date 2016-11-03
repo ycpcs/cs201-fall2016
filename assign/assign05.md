@@ -3,7 +3,7 @@ layout: default
 title: "Assignment 5: Mandelbrot Set Renderer"
 ---
 
-**Due**: TBD
+**Due**: Friday, November 25th by 11:59 PM
 
 Getting Started
 ===============
