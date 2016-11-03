@@ -221,7 +221,7 @@ An example of a GUI program that uses a thread to schedule a long-running comput
 
 > [GUIWithComputationThread.zip](GUIWithComputationThread.zip)
 
-Feel free to use this program as a basis for your extra-credit GUI.
+Feel free to use this program as a basis for your extra-credit GUI.  (Note that Google Chrome may spuriously report that this file is malicious; in that case you can use Firefox to download it.)
 
 Make sure that you have the sequential and parallel computation working before you try creating a GUI.
 
