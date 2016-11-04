@@ -213,7 +213,7 @@ Your submission will be graded according to the following criteria:
 Insane Extra Credit
 -------------------
 
-For up to 50 points of extra credit, implement an interactive GUI.  The GUI should start by visualizing the region (-2,-2) to (2,2).  The user should be allowed to zoom in on an arbitrary square region.
+For up to 50 points of extra credit, implement an interactive GUI.  The GUI should start by visualizing the region (-2,-2) to (2,2).  The user should be allowed to zoom in on an arbitrary square region.  (Make sure that it is only possible for the user to select a square region.)
 
 **Important**: The GUI should do the computation in a separate thread, not in the event loop thread.  In other words, do *not* do the computation directly in an event handler.  Instead, when a new rendering needs to be performed, the event handler should start a thread to do the computation.  When the computation is done, it should use **SwingUtilities.invokeLater** to schedule some code to run in the event loop, which then should cause the view to be updated.
 
