@@ -26,6 +26,7 @@ Welcome to the website for CS 201, Fundamentals of Computer Science II, at York 
 
 ## News
 
+* **Nov 16** &mdash; Exam 3 will take place in class on Friday, Nov 30th.  A practice exam is available on the [Practice Exams](practice/index.html) page.
 * **Nov 3** &mdash; [Assignment 5](assign/assign05.html) is due Friday, Nov 18th by 11:59 PM.
 * **Nov 2** &mdash; [Assignment 5](assign/assign05.html) has been posted, due date TBD.
 * **Oct 26** &mdash; A solution to the second practice exam is available on the [Practice Exams](practice/index.html) page.
