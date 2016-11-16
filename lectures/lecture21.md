@@ -8,7 +8,7 @@ Induction Hypothesis
 
 Proof by induction is a very useful technique for proving that a hypothesis is true for **all** integers starting from some small integer (generally 0 or 1). The hypothesis is called the *induction hypothesis*, which we will abbreviate as *IH*. We will say *IH*(0) to refer to the induction hypothesis for the integer 0, *IH*(1) for the integer 1, and *IH*(*n*) for the integer n.
 
-In principle, we could prove the cases of the induction hypothesis one at a time. In other words, prove that *IH*(0) is true, then prove that *IH*(1) is true, then *IH*(2), etc. However, since our goal is to prove the induction hypothesis for **all** integers (greater than our starting point), we will never finish, since there are an infinite number of such integers!
+In principle, we could prove the cases of the induction hypothesis one at a time. In other words, prove that *IH*(0) is true, then prove that *IH*(1) is true, then *IH*(2), etc. However, since our goal is to prove the induction hypothesis for **all** integers (greater than our starting point), we will never finish, since there is an infinite number of such integers!
 
 Proof By Induction
 ==================
