@@ -35,7 +35,7 @@ Nov 16 | [Lecture 21: Proof by Induction](lectures/lecture21.html), 7.2
 Nov 18 | [Lecture 22: Memoization and Dynamic Programming](lectures/lecture22.html), 7.6
 Nov 23 | Thanksgiving vacation, no class
 Nov 25 | Thanksgiving vacation, no class
-Nov 30 | **Exam 3**
-Dec 2 | [Lecture 23: Merge and Quick Sort](lectures/lecture23.html), 8.5-8.6
+Nov 30 | [Lecture 23: Merge and Quick Sort](lectures/lecture23.html), 8.5-8.6
+Dec 2 | **Exam 3**
 Dec 7 | Databases
 Dec 9 | Databases
