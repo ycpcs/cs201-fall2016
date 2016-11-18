@@ -3,7 +3,7 @@ layout: jquery
 title: "Assignment 6: Web Crawler"
 ---
 
-*Preliminary version, not official yet*
+*Note: this assignment description will be updated*
 
 **Due dates**:
 
@@ -12,9 +12,15 @@ title: "Assignment 6: Web Crawler"
 
 # Getting started
 
-Download [CS201\_Assign06.zip](CS201_Assign06.zip) and import it into your Eclipse workspace (**File&rarr;Import&rarr;General&rarr;Existing projects into workspace&rarr;Archive file**.)
+## Milestone 1
 
-You should see a project called **CS201\_Assign06** in the Package Explorer. Your will be implementing the methods in the **URL** class and the **WebCrawler** class.
+Download [CS201\_Assign06\_MS1.zip](CS201_Assign06_MS1.zip) and import it into your Eclipse workspace (**File&rarr;Import&rarr;General&rarr;Existing projects into workspace&rarr;Archive file**.)
+
+You should see a project called **CS201\_Assign06\_MS1** in the Package Explorer. Your will be implementing the methods in the **URL**.
+
+## Milestone 2
+
+Comingn soon.
 
 # Your task
 
@@ -215,7 +221,7 @@ Milestone 2:
 
 # Submitting
 
-Save the project (**CS201\_Assign06**) to a zip file by right-clicking it and choosing
+Save the project (**CS201\_Assign06\_MS1** or **CS201\_Assign06\_MS2**) to a zip file by right-clicking it and choosing
 
 > **Export...&rarr;Archive File**
 
