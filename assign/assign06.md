@@ -20,7 +20,7 @@ You should see a project called **CS201\_Assign06\_MS1** in the Package Explorer
 
 ## Milestone 2
 
-Comingn soon.
+Coming soon.
 
 # Your task
 
@@ -82,6 +82,8 @@ A URL *object* is an instance of the **URL** class, and represents the informati
 * `toString`: returns the textual representation of a URL
 
 Note that the `equals`, `hashCode`, and `compareTo` methods are already defined: you will not need to modify them.  (All of them call `toString`, so they will not work correctly unless `toString` works correctly.)
+
+Also note that **URL** is an *immutable class*.  This means that none of the methods supported by **URL** objects modify the object's data.  In other words, **URL** objects are "read only" once they are created.
 
 ### Finding the canonical form of a URL
 
@@ -212,8 +214,20 @@ Coming soon.
 
 Milestone 1:
 
-* stuff 1
-* stuff 2
+* constructor from string: 10%
+* copy constructor: 10%
+* `isAbsolute`: 6%
+* `isDirectory`: 6%
+* `getProtocol`: 6%
+* `getHost`: 6%
+* `getPath`: 6%
+* `getDirectoryPart`: 6%
+* `isCanonical`: 6%
+* `makeCanonical`: 20%
+* `getReferencedURL`: 10%
+* `toString`: 8%
+
+Points may be deducted for poor coding style such as non-private fields, inconsistent indentation, etc.
 
 Milestone 2:
 
