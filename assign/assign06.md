@@ -22,6 +22,10 @@ You should see a project called **CS201\_Assign06** in the Package Explorer. You
 
 Your first task is to implement the methods in the **URL** class so that the tests in **URLTest** pass.
 
+<div class="callout">
+<b>Very important</b>: Do <em>not</em> use the <code>java.net.URL</code> class, or any other classes in the <code>java.net</code> package, in your implementation of the <b>URL</b> class.
+</div>
+
 A URL is a string of text specifying the location of a web resource.  A URL consists of a *protocol* (optional), followed by a *host* (optional), followed by a *path* (required).
 
 A protocol is a sequence of characters ending in a colon (":").
@@ -71,7 +75,7 @@ A URL *object* is an instance of the **URL** class, and represents the informati
 * `getReferencedURL`: returns a URL referenced by a link occurring in a web document in absolute canonical form (see below)
 * `toString`: returns the textual representation of a URL
 
-Note that the `equals` and `compareTo` methods are already defined: you will not need to modify them.
+Note that the `equals`, `hashCode`, and `compareTo` methods are already defined: you will not need to modify them.  (All of them call `toString`, so they will not work correctly unless `toString` works correctly.)
 
 ### Finding the canonical form of a URL
 
@@ -151,23 +155,44 @@ Here is how we can convert a URL not in canonical form to canonical form:
 1. convert the URL's path into a sequence of components
 2. create a stack of string values
 3. for each component, in order:
-  * if the component is ".", ignore it
-  * if the component is "..", pop the stack
-  * otherwise, push the component onto the stack
+    * if the component is ".", ignore it
+    * if the component is "..", pop the stack
+    * otherwise, push the component onto the stack
 
-If the process completes successfully, the components in the stack (from bottom to top) are the components of the canonical form of the path.
+If the process completes successfully, the components in the stack (from bottom to top) are the components of the canonical form of the path.  (One reason that conversion to canonical form may fail is if a ".." component is seen, but the stack is empty.)
 
 In the example above, the canonical form of the path is
 
     /reptiles/lizards/monitorLizard.html
 
-One reason that conversion to canonical form may fail is if a ".." component is seen, but the stack is empty.
-
 ### Getting a referenced URL
 
 So, if having a URL in canonical form is a good thing, why are the "." and ".." components used at all?
 
-Explain...
+The reason is that when one web page links to another resource, it may be convenient to specify the linked resource's location relative to its own location.  For example, if a web page with the path
+
+    /dinosaurs/therizinosaurs/nothronychus.html
+
+contains a link
+
+    ../sauropods/argentinosaurus.html
+
+then the effective path of the linked resource is
+
+    /dinosaurs/therizinosaurs/../sauropods/argentinosaurus.html
+
+In other words, we take the directory part of the document containing the link, and append to it the relative link.  The idea is that a ".." path component allows a link to a resource "below" or "beside" the web page containing the link.
+
+Because canonical form is always the best way to specify the location, of a resource, referenced URLs should be converted into canonical form.  In the example above, the canonical form of the linked resource's path would be
+
+    /dinosaurs/sauropods/argentinosaurus.html
+
+The `getReferencedURL` method in the **URL** class should do the following:
+
+1. If the referenced URL's path is absolute, convert it to canonical form and return the canonical form
+2. If the referenced URL's path is not absolute, then
+    1. Find the referenced URL's effective path by appending it onto the directory part of the "base" URL (which is the **URL** object the method is called on)
+    2. Return the canonical form of the URL whose protocol and host are the same as the base URL, but whose path is the effective path of the referenced URL
 
 ## Milestone 2: Web crawler
 
@@ -175,7 +200,7 @@ Coming soon.
 
 # Hints and specifications
 
-Yeah.
+Coming soon.
 
 # Grading criteria
 
