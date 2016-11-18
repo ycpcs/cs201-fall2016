@@ -26,6 +26,7 @@ Welcome to the website for CS 201, Fundamentals of Computer Science II, at York 
 
 ## News
 
+* **Nov 18** &mdash; There will not be any tutoring next week (on Tuesday, Nov 22nd.)  Tutoring will resume after Thanksgiving break.
 * **Nov 18** &mdash; [Assignment 6](assign/assign06.html) has been posted: Milestone 1 is due Tuesday, Dec 6th by 11:59 PM, and Milestone 2 is due Tuesday, Dec 13th by 11:59 PM.  (The requirements for Milestone 2 are not posted yet, but will be soon.)
 * **Nov 18** &mdash; Exam 3 has been moved to Friday, December 2nd.
 * **Nov 16** &mdash; Exam 3 will take place in class on Wednesday, Nov 30th.  A practice exam is available on the [Practice Exams](practice/index.html) page.
