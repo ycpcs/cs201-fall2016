@@ -45,7 +45,7 @@ Now, use the **alter table** command to establish **author_id** as a foreign key
         add foreign key (author_id)
         references authors (author_id);
     
-The schemas of the database tables are described in the notes for [Lecture 9](../lectures/lecture09.html).
+The schemas of the database tables are described in the notes for [Lecture 26](../lectures/lecture26.html).
 
 Task
 ====
