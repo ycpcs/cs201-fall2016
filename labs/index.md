@@ -45,8 +45,8 @@ Nov 18 | [Lab 22: Binomial Coefficient](lab22.html) | [CS201\_Lab22.zip](CS201_L
 Nov 23 | Thanksgiving vacation, no class
 Nov 25 | Thanksgiving vacation, no class
 Dec 2 | No lab
-Dec 7 | TBD
-Dec 9 | TBD
+Dec 7 | [Lab 26: Relational Databases and SQL](lab26-SQLDB.html) | [CS320\_Lab04.zip](CS320_Lab04.zip)
+Dec 9 | [Lab 27: JDBC](lab27-JDBC.html) | [CS320\_Lab05.zip](CS320_Lab05.zip)
 
 <!--
  | [Lab 23: Advanced Recursion](lab23.html) | [CS201\_Lab23.zip](CS201_Lab23.zip)
