@@ -5,7 +5,7 @@ title: "Lab 26: SQL, Queries, Joins"
 
 Getting Started
 ===============
-For our last week in CS201, we're going to "borrow" labs from the CS320 SW Engineering Course.  If you are going to have SW Engineering this coming Spring, you'll be getting a head start on the assignments in that course.
+For our last week in CS201, we're going to "borrow" labs from the CS320 SW Engineering Course.  If you are taking SW Engineering this coming Spring, you'll be getting a head start on the assignments in CS320.
 
 Download [CS320\_Derby.zip](../resources/CS320_Derby.zip) and [CS320\_Lab04.zip](CS320_Lab04.zip). Import them into your Eclipse workspace<br> (**File-\>Import...-\>General-\>Existing projects into workspace-\>Archive File**). You will see projects called **CS320\_Derby** and **CS320\_Lab04** in the Package Explorer.  You will be running the **SQLDemo** class in the **CS320_Lab04** project.
 
