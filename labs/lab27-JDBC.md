@@ -5,7 +5,7 @@ title: "Lab 27: JDBC"
 
 Getting Started
 ===============
-We'll continue our work on SQL databases from last the previous class by again "borrowing" from the CS320 SW Engineering labs.
+We'll continue our work on SQL databases this week by again "borrowing" from the CS320 SW Engineering labs.
 
 Download [CS320\_Lab05.zip](CS320_Lab05.zip). Import it into your Eclipse workspace (**File&rarr;Import...&rarr;General&rarr;Existing projects into workspace&rarr;Archive File**). You will see a project called **CS320\_Lab05** in the Package Explorer.  (You will also need to have the **CS320_Derby** project in your workspace, which should already be there from [Lab 26](lab26-SQLDB.html).)
 
