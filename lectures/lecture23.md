@@ -12,6 +12,10 @@ Today we'll look at two *optimal* sorting algorithms:
 
 These algorithms are *optimal* because O(N log N) is the best asymptotic upper bound that it is possible to achieve for sorting.
 
+Here is an Eclipse project that has animated demonstrations of several sorting algorithms, including merge sort and quick sort:
+
+> [SortDemo.zip](SortDemo.zip)
+
 Merge Sort
 ==========
 
