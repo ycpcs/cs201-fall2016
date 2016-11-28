@@ -37,5 +37,5 @@ Nov 23 | Thanksgiving vacation, no class
 Nov 25 | Thanksgiving vacation, no class
 Nov 30 | [Lecture 23: Merge and Quick Sort](lectures/lecture23.html), 8.5-8.6
 Dec 2 | **Exam 3**
-Dec 7 | [Lecture 26: Relational Databases and SQL](lectures/lecture26.html)
-Dec 9 | [Lecture 27: Database Applications and JDBC](lectures/lecture27.html)
+Dec 7 | [Lecture 24: Relational Databases and SQL](lectures/lecture24.html)
+Dec 9 | [Lecture 25: Database Applications and JDBC](lectures/lecture25.html)

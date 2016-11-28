@@ -1,88 +1,77 @@
 ---
 layout: default
-title: "Lab 23: Advanced Recursion"
+title: "Lab 23: SQL, Queries, Joins"
 ---
 
 Getting Started
 ===============
+For our last week in CS201, we're going to "borrow" labs from the CS320 SW Engineering Course.  If you are taking SW Engineering this coming Spring, you'll be getting a head start on the assignments in CS320.
 
-Import [CS201\_Lab23.zip](CS201_Lab23.zip) (**File&rarr;Import...&rarr;General&rarr;Existing Projects into Workspace&rarr;Archive File**). You should see a project called **CS201\_Lab23** in the Package Explorer.
+Download [CS201\_Derby.zip](../resources/CS201_Derby.zip) and [CS201\_Lab23.zip](CS201_Lab23.zip). Import them into your Eclipse workspace<br> (**File-\>Import...-\>General-\>Existing projects into workspace-\>Archive File**). You will see projects called **CS201\_Derby** and **CS201\_Lab23** in the Package Explorer.  You will be running the **SQLDemo** class in the **CS201_Lab23** project.
 
-Your Task
-=========
+Setting up the database
+=======================
 
-Implement the following static methods in the class called **Recursion**:
+Execute the **SQLDemo** class as a Java application.
 
--   **mergeSortWork**
--   **permute**
+Use **create table** commands to create **books** and **authors** tables. From the **SQL\>** prompt, enter the following commands:
 
-Note: this lab is challenging! A good goal would be to get at least one of the methods working. If you get both methods working, you have earned a recursion brown belt.
+    create table books (
+        book_id int
+            primary key generated always as identity (start with 1, increment by 1),
+        author_id int,
+        title varchar(50),
+        isbn varchar(20)
+    );
 
-mergeSortWork
--------------
+    create table authors (
+        author_id int
+            primary key generated always as identity (start with 1, increment by 1),
+        author_lastname varchar(40),
+        author_firstname varchar(40)
+    );
 
-Merge sort is a simple but highly efficient sorting algorithm. It works by sorting a region of a sequence from a given start index (inclusive) to a given end index (exclusive).
+Next, use **import** commands to load data into these tables:
 
-The algorithm works as follows:
+    import books books.csv;
 
-1.  if the region has less than 2 elements, do nothing (base case)
-2.  otherwise,
+    import authors authors.csv;
 
-    1.  divide the region into halves and recursively sort each half
-    2.  merge the two sorted halves of the region into a merged list containing all of the elements in the region, in sorted order
-    3.  copy the elements from the merged list back to the region of the list being sorted
+Your database is now populated with data.
 
-A method called **merge** is provided to merge the elements in two sorted halves of a region into a single sorted list.
+Now, use the **alter table** command to establish **author_id** as a foreign key in the **books** table.  Enter the following command:
 
-permute
--------
+    alter table books
+        add foreign key (author_id)
+        references authors (author_id);
+    
+The schemas of the database tables are described in the notes for [Lecture 24](../lectures/lecture24.html).
 
-A *permutation* of a sequence is another sequence containing all of the values in the original sequence, but in which those values might be in a different order.
+Task
+====
 
-The **permute** method takes a list and returns a set containing all possible permutations of that list.
+Try executing some queries to retrieve the following information:
 
-**There is a very simple way to implement this method using recursion.** Think about what an appropriate base case for this method might be. Then think about how you might use recursion to work towards this base case.
+-   the titles of all books written by F.G. Smallfinger
+-   the titles of all books written by Callus Tacticus
+-   the author name (first and last) and the ISBN number of the book with the title "First Flights in Witchcraft"
+-   attempt to insert a new book into the **books** table, with an **author_id** that does not appear in the **authors** table (this attempt should fail, due to specifying an invalid **foreign key** for **author_id**)
+-   insert yourself as a new author in the the **authors** table (do not specify an author_id, Derby will do that for you, since **author_id** is the auto-generated primary key for the **authors** table)
+-   retrieve the **author_id** from the **authors** table for your entry
+-   insert a new book into the **books** table, using your new **author_id**
 
-Hints:
+Each query should be terminated with a semicolon (**;**). For example, here is session showing a query to select all of the tuples in the **authors** table (user input in **bold**):
 
--   Use **new HashSet&lt;List&lt;E&gt;&gt;()** to create a set of lists to return from the method.
--   You will probably need to make **multiple** recursive calls.
--   A recursion on a list will typically make progress by making the list shorter. You can make a list **y** shorter by calling **y.remove(***index***)**, where *index* is the index of the element you want to remove. Make sure you do something with the element you removed.
+<pre>
+SQL> <b>select * from authors;</b>
+AUTHOR_ID AUTHOR_LASTNAME AUTHOR_FIRSTNAME
+--------- --------------- ----------------
+        1     Smallfinger             F.G.
+        2       Whittlbey           W.H.J.
+        3          Earwig          Lettice
+        4         Lightly             W.E.
+        5        Tacticus           Callus
+OK (5 rows(s))
+</pre>
 
-To simplify your algorithm you will probably want to avoid directly modifying a list. Instead, make a copy and modify the copy. You can make a copy of a list by creating a new **ArrayList** and passing the list you want to copy to the constructor:
-
-Approach
---------
-
-When you implement a method, remove the line of code reading
-
-    throw new UnsupportedOperationException("Not implemented yet");
-
-A JUnit test class called **RecursionTest** contains test cases for each method.
-
-As you think about how to implement each method, consider:
-
--   What is a base case (or base cases) that can be solved without using recursion?
--   How can you find a subproblem which has the same form as the overall problem?
--   How can you extend the solution to the subproblem to solve the overall problem?
-
-Submitting
-==========
-
-When you are done, submit the lab to the Marmoset server using either of the methods below.
-
-From Eclipse
-------------
-
-If you have the [Simple Marmoset Uploader Plugin](../resources/index.html) installed, select the project (**CS201\_Lab23**) in the package explorer and then press the blue up arrow button in the toolbar. Enter your Marmoset username and password when prompted.
-
-From a web browser
-------------------
-
-Save the project (**CS201\_Lab23**) to a zip file by right-clicking it and choosing
-
-> **Export...&rarr;Archive File**
-
-Upload the saved zip file to the Marmoset server as **lab23**. The server URL is
-
-> <https://cs.ycp.edu/marmoset/>
+[Here is a great tutorial side for learning SQL](http://www.w3schools.com/sql/default.asp)

@@ -1,85 +1,60 @@
 ---
 layout: default
-title: "Lecture 25: Singly and Doubly-Linked Lists"
+title: "Lecture 25: Database Applications, JDBC"
 ---
 
-Background
-==========
+In [Lab 23](../labs/lab23.html) we experimented with [Derby](https://db.apache.org/derby/) by typing queries interactively (using a simple front-end program).
 
-A linked list is a concrete data structure which models a sequence.
+Another very useful way to interact with a database is from a program that you write. Programs which communicate with a database are often referred to as *database applications*.
 
-A linked list is a chain of *node* objects. Each node object stores
+JDBC is the standard Java API for writing database applications. It provides a common set of functions for accessing and modifying data in SQL databases.
 
--   A single value in the sequence; this is the *payload*
--   A reference (pointer) to the node storing the next value in the sequence; this is the *successor* reference.
+JDBC Concepts
+=============
 
-Optionally, a node may also have a reference to the node containing the previous value in the sequence. This is the *predecessor* reference.
+Here are some of the basic JDBC concepts you will employ.
 
-Linked lists whose nodes contain only successor references are known as *singly-linked*. Linked lists containing both successor and predecessor references are known as *doubly-linked*.
+Drivers
+-------
 
-The *head* of a linked list is the node containing the first element of the sequence. The *tail* of a linked list is the node containing the last element of the sequence.
+A JDBC *driver* is a code library which implements the JDBC API for a particular back-end database. Most popular relational databases include a JDBC driver.
 
-Here are two diagrams showing linked lists (chains of nodes) containing the sequence *A*, *B*, *C*:
+Generally, to add support for a particular database implementation to your application, you will include its JDBC driver in your project. Your application will need to *load* the driver by instantiating its main class.
 
-> Singly-linked list:
->
-> ![image](figures/sll.png)
->
-> Doubly-linked list:
->
-> ![image](figures/dll.png)
-
-Characteristics
-===============
-
-Linked lists have the following general characteristics
-
--   O(1) prepend and append operations
--   O(1) remove first element
--   O(1) remove last element for doubly-linked lists; O(N) for singly-linked lists
--   O(N) get/set/insert/remove using an arbitrary index
--   O(1) insert/remove given a pointer to a list node which is adjacent to the insertion and/or removal site
--   O(N) to iterate through values from beginning of sequence to end
--   O(N) to iterate backwards through values (end to beginning) for doubly-linked lists only
-
-Because the operations that get and set elements at an arbitrary index take O(N) time, linked lists can be said to support a *sequential* access for elements. Algorithms that require *random* access to elements in the sequence should use an array-based sequence data structure which supports get and set at an index in O(1) time.
-
-The most interesting characteristic of linked lists is their ability to add and remove elements in O(1) time at both ends, and their ability to perform O(1) element insertions and removals given a reference to a list node adjacent to the insertion/removal site.
-
-Implementation issues
-=====================
-
-Linked lists can be somewhat tricky to implement correctly.
-
-The key to correctly implementing operations on a linked list is to preserve the fundamental *invariants* of the data structure:
-
--   The linked list must keep track of which node contains the first and last values in the sequence
--   For a node *N* in the chain containing a value *V* in the sequence, *N*'s successor reference must point to the node containing the successor to *V* in the sequence
--   Doubly-linked lists: For a node *N* in the chain containing a value *V* in the sequence, *N*'s predecessor reference must point to the node containing the predecessor to *V* in the sequence
-
-When implementing a linked list, you will need to be very careful to preserve these invariants. Often, special cases will emerge, especially when performing operations at the head and tail (beginning and end) of the chain of nodes.
-
-Termination
+Connections
 -----------
 
-The first and last values in a sequence are special cases: the first value has no predecessor, and the last value has no successor. A linked list implementation will need to use some form of *termination* for the nodes storing the first and last values in the sequence.
+A JDBC *connection* is an object that allows your application to communicate with a particular instance of the database.
 
-There are two common strategies:
+Connections are specified as URL strings. The URL string encodes both the driver to be used and also the location of the database.
 
-**(1)** Use **null** as a terminator. In this strategy, the head node's predecessor reference is the **null** value, and the tail node's sucessor reference is the **null** value.
+The JDBC **DriverManager** class creates connection objects.
 
-> Doubly-linked list terminated by null:
->
-> ![image](figures/dllNullTerm.png)
+PreparedStatement
+-----------------
 
-When the chain of nodes is terminated using **null**, the methods which implement the linked list operations must be very careful to check successors and predecessors to ensure that they are non-null before attempting to use them (by accessing the payload, following successor/predecessor links, etc.)
+A *prepared statement* object represents a particular query or insert/update/delete statement to be executed.
 
-**(2)** Use *sentinel nodes*. A sentinel node is a special node which does not contain an element of the sequence.
+A prepared statement may contain *placeholders* for information that will be "filled in" when the statement is executed. This allows the same statement to be executed many times, supplying different data each time.
 
-Sentinel nodes are useful to eliminate some (all?) special cases that would otherwise arise when performing operations at the beginning and end of the linked list. For example, if the head node is preceeded by a sentinel node, and the tail node is followed by a sentinel node, then all of the nodes in the list which contain element values have predecessor and successor nodes. This can significantly reduce the complexity of implementing the linked list operations.
+For example: here is a query that searches for books matching a particular title:
 
-> Doubly-linked list terminated by sentinel nodes:
->
-> ![image](figures/dllSentinelTerm.png)
+    select authors.author_lastname, authors.author_firstname, books.title, books.isbn
+        from authors, books
+        where authors.author_id = books.author_id
+              and books.title = ?
 
-Using sentinel nodes in a linked list creates a new invariant: the "head sentinel" must always be the predecessor of the head node, and the "tail sentinel" must always be the successor of the tail node.
+The question mark (**?**) is a placeholder for a particular book title. So, this query is a general "template" for finding books given a title. If we make this query a prepared statement, we can use it as many times as desired to find books matching various titles. Each time we execute the prepared statement, we will substitute a specific title for the placeholder.
+
+ResultSet
+---------
+
+A *result set* is returned as the result of executing a prepared statement. The result set is essentially an iterator for the tuples returned as the result of the query.
+
+The data types of the returned attribute values are mapped onto Java data types. Typical mappings include:
+
+> SQL type | Java type
+> -------- | ---------
+> VARCHAR | java.lang.String
+> INTEGER | java.lang.Integer
+> DATE | java.sql.Date
