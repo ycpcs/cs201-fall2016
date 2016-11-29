@@ -24,6 +24,6 @@ Using **TitleQuery** as a model, write your own programs to do the following:
 
 **(2)** For an existing author, given the full (first and last) name of an author, a title, and an ISBN, insert the book into the database.  The program must first retrieve the existing author's **author\_id** before inserting the new book entry into the books table.
 
-**(3)** **CHALLENGE:** Add a book for an author that is not already in the database.  In this case, the program must first add the new author to the authors table, and then retrieve the auto-generated **author\_id** for the new author, before inserting the new book into the database.  Hint: This requires multiple steps: attempt to retrieve the **author_\id**.  If the result set is empty, add the new author to the authors table.  Then, retrieve the **author\_id** for the new author.  Now you can insert the new book into the database.
+**(3)** **CHALLENGE:** Add a book for an author that is not already in the database.  In this case, the program must first add the new author to the authors table, and then retrieve the auto-generated **author\_id** for the new author, before inserting the new book into the database.  Hint: This requires multiple steps: attempt to retrieve the **author\_id**.  If the result set is empty, add the new author to the authors table.  Then, retrieve the **author\_id** for the new author.  Now you can insert the new book into the database.
 
 Use the SQL **insert** statement to insert the new tuple(s).
