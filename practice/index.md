@@ -14,3 +14,5 @@ This page links to practice exams.
 > [Exam 2 solution](cs201-fall2015-exam02-solution.pdf), [CS201\_Exam02\_Solution.zip](CS201_Exam02_Solution.zip) (programming question solution)
 
 [Exam 3, Fall 2015](cs201-fall2015-exam03.pdf), [CS201\_Exam03.zip](CS201_Exam03.zip) (programming question)
+
+> [Exam 3 solution](cs201-fall2015-exam03-solution.pdf)
