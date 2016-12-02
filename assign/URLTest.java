@@ -162,6 +162,11 @@ public class URLTest {
 				"/cs201-fall2016/labs/images/../../assign/img/../",
 				assignmentDescNonCanonical.getDirectoryPart());
 		assertEquals("/cs201-fall2016/practice/", absoluteLink.getDirectoryPart());
+		
+		// Test that the directory part of a path with no slashes is the
+		// empty string.
+		URL noSlash = new URL("hithere.html");
+		assertEquals("", noSlash.getDirectoryPart());
 	}
 	
 	@Test
