@@ -3,12 +3,15 @@ layout: jquery
 title: "Assignment 6: Web Crawler"
 ---
 
-*Note: this assignment description will be updated*
-
 **Due dates**:
 
 * Milestone 1 is due Tuesday, Dec 6th by 11:59 PM
 * Milestone 2 is due Tuesday, Dec 13th by 11:59 PM
+
+*Update 12/2*:
+
+* `http:` and `https:` URLs must have a host part
+* link to more complete **URLTest.java**
 
 # Getting started
 
@@ -17,6 +20,10 @@ title: "Assignment 6: Web Crawler"
 Download [CS201\_Assign06\_MS1.zip](CS201_Assign06_MS1.zip) and import it into your Eclipse workspace (**File&rarr;Import&rarr;General&rarr;Existing projects into workspace&rarr;Archive file**.)
 
 You should see a project called **CS201\_Assign06\_MS1** in the Package Explorer. Your will be implementing the methods in the **URL**.
+
+*Update 12/2*: The original version of **URLTest.java** did not have any tests for the `getDirectoryPart` method.  Here is a fixed version:
+
+> [URLTest.java](URLTest.java)
 
 ## Milestone 2
 
@@ -36,7 +43,7 @@ A URL is a string of text specifying the location of a web resource.  A URL cons
 
 A protocol is a sequence of characters ending in a colon (":").
 
-A host starts with "//" and then consists of a sequence of non-slash characters.
+A host starts with "//" and then consists of a sequence of non-slash characters.  If the URL's protocol is either `http:` or `https:`, then the host part of the URL is *not* optional.
 
 A path is a sequence of components separated by slashes.  Each component is a sequence of non-slash characters.  As a special case, a single slash character ("/") is also considered a valid path.  Also note that if the URL specifies a host, the path *must* start with a slash.
 
