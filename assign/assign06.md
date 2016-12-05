@@ -13,11 +13,15 @@ title: "Assignment 6: Web Crawler"
 * `http:` and `https:` URLs must have a host part
 * link to more complete **URLTest.java**
 
+*Update 12/5*:
+
+* Post skeleton for Milestone 2 and requirements for the `LinkExtractor` class
+
 # Getting started
 
 ## Milestone 1
 
-Download [CS201\_Assign06\_MS1.zip](CS201_Assign06_MS1.zip) and import it into your Eclipse workspace (**File&rarr;Import&rarr;General&rarr;Existing projects into workspace&rarr;Archive file**.)
+Download [CS201\_Assign06\_MS1.zip](CS201_Assign06_MS1.zip) and import it into your Eclipse workspace (**File &rarr; Import &rarr; General &rarr; Existing projects into workspace &rarr; Archive file**.)
 
 You should see a project called **CS201\_Assign06\_MS1** in the Package Explorer. Your will be implementing the methods in the **URL**.
 
@@ -27,7 +31,10 @@ You should see a project called **CS201\_Assign06\_MS1** in the Package Explorer
 
 ## Milestone 2
 
-Coming soon.
+Download [CS201\_Assign06\_MS2.zip](CS201_Assign06_MS2.zip) and import it into your Eclipse workspace (**File &rarr; Import &rarr; General &rarr; Existing projects into workspace &rarr; Archive file**.)
+
+You should see a project called **CS201\_Assign06\_MS2** in the Package Explorer.  You will need to copy the **URL** class from your Milestone 1 project into the Milestone 2 project.  Your will be implementing the methods in the **LinkExtractor** and **Crawler** class.
+
 
 # Your task
 
@@ -211,11 +218,49 @@ The `getReferencedURL` method in the **URL** class should do the following:
 
 ## Milestone 2: Web crawler
 
+In the second milestone, you will complete the implementation of two classes, `LinkExtractor` and `Crawler`.
+
+### `LinkExtractor` class
+
+The `LinkExtractor` class is used to scan the text of a web page for links to other resources (including other web pages.)
+
+For the purposes of this assignment, you can assume that a link is text between the delimiters `href="` and `"`.  You may also assume that any line of text in a web page will contain at most one link.
+
+As an example, consider the following web page:
+
+    <html>
+      <body>
+        <a href="coolStuff.html">Some cool stuff</a>
+        
+        <a href="info/resources.html">Resources</a>
+      </body>
+    </html>
+
+This web page has two links:
+
+    coolStuff.html
+    info/resources.html
+
+To implement the `LinkExtractor` class, you should do the following:
+
+* Add a field to keep track of extracted links (hint: use a `Set<String>`)
+* Modify the constructor to initialize this field (hint: create a set object)
+* Modify the `processLine` method so that it looks for a link in the specified line of text, and if one is found, adds it to the set
+* Modify the `getExtractedLinks` method to return the set of extracted links
+
+You can use the **LinkExtractorTest** class to test your `LinkExtractor` implementation.  Make sure all of the tests pass.
+
+### `Crawler` class
+
 Coming soon.
 
 # Hints and specifications
 
-Coming soon.
+For `LinkExtractor` the following methods in the String class may be useful.  For example, if `s` is a string:
+
+* `s.indexOf(c)`, where `c` is a character gives you the index of the first occurrence of `c` in `s`, or -1 if there are no occurrences
+* `s.indexOf(sub)`, where `sub` is a string, gives you the index of the first occurrence of `sub` in `s`, or -1 if there are no occurrences
+* `s.substring(start, end)` gives you the substring of `s` from index `start` (inclusive) to index `end` (exclusive)
 
 # Grading criteria
 
@@ -238,7 +283,11 @@ Points may be deducted for poor coding style such as non-private fields, inconsi
 
 Milestone 2:
 
-* coming soon
+* `LinkExtractor` fields: 7%
+* `LinkExtractor` constructor: 8% 
+* `LinkExtractor` `processLine` method: 30%
+* `LinkExtractor` `getExtractedLinks` method 5%
+* `Crawler` class: 50% (more precise breakdown coming soon)
 
 # Submitting
 

@@ -26,6 +26,7 @@ Welcome to the website for CS 201, Fundamentals of Computer Science II, at York 
 
 ## News
 
+* **Dec 5** &mdash; [Assignment 6](assign/assign06.html) has been updated with a skeleton project for Milestone 2, and information about one of the two classes you will be implementing in Milestone 2.
 * **Dec 2** &mdash; [Assignment 6](assign/assign06.html) has been updated to clarify a situation in which a URL is invalid and to link to improved unit tests.
 * **Nov 18** &mdash; There will not be any tutoring next week (on Tuesday, Nov 22nd.)  Tutoring will resume after Thanksgiving break.
 * **Nov 18** &mdash; [Assignment 6](assign/assign06.html) has been posted: Milestone 1 is due Tuesday, Dec 6th by 11:59 PM, and Milestone 2 is due Tuesday, Dec 13th by 11:59 PM.  (The requirements for Milestone 2 are not posted yet, but will be soon.)
