@@ -16,6 +16,7 @@ title: "Assignment 6: Web Crawler"
 *Update 12/5*:
 
 * Post skeleton for Milestone 2 and requirements for the `LinkExtractor` class
+* Add a hint about how to split a URL path into components
 
 # Getting started
 
@@ -255,6 +256,14 @@ You can use the **LinkExtractorTest** class to test your `LinkExtractor` impleme
 Coming soon.
 
 # Hints and specifications
+
+For the `makeCanonical` method in `URL`, you can split a path into components as follows.  Assume that the `path` variable is the path part of a URL.  The following code will break the path into an array of components:
+
+{% highlight java %}
+String[] components = path.split("/");
+{% endhighlight %}
+
+Note that if the path starts with "/" there will be an empty first component, and if the path ends with "/" there will be an empty last component.
 
 For `LinkExtractor` the following methods in the String class may be useful.  For example, if `s` is a string:
 
