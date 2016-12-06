@@ -15,8 +15,12 @@ title: "Assignment 6: Web Crawler"
 
 *Update 12/5*:
 
-* Post skeleton for Milestone 2 and requirements for the `LinkExtractor` class
+* Post skeleton for Milestone 2 and requirements for the **LinkExtractor** class
 * Add a hint about how to split a URL path into components
+
+*Update 12/6*:
+
+* Describe requirements for the **Crawler** class
 
 # Getting started
 
@@ -219,11 +223,11 @@ The `getReferencedURL` method in the **URL** class should do the following:
 
 ## Milestone 2: Web crawler
 
-In the second milestone, you will complete the implementation of two classes, `LinkExtractor` and `Crawler`.
+In the second milestone, you will complete the implementation of two classes, **LinkExtractor** and **Crawler**.
 
 ### `LinkExtractor` class
 
-The `LinkExtractor` class is used to scan the text of a web page for links to other resources (including other web pages.)
+The **LinkExtractor** class is used to scan the text of a web page for links to other resources (including other web pages.)
 
 For the purposes of this assignment, you can assume that a link is text between the delimiters `href="` and `"`.  You may also assume that any line of text in a web page will contain at most one link.
 
@@ -242,18 +246,43 @@ This web page has two links:
     coolStuff.html
     info/resources.html
 
-To implement the `LinkExtractor` class, you should do the following:
+To implement the **LinkExtractor** class, you should do the following:
 
 * Add a field to keep track of extracted links (hint: use a `Set<String>`)
 * Modify the constructor to initialize this field (hint: create a set object)
 * Modify the `processLine` method so that it looks for a link in the specified line of text, and if one is found, adds it to the set
 * Modify the `getExtractedLinks` method to return the set of extracted links
 
-You can use the **LinkExtractorTest** class to test your `LinkExtractor` implementation.  Make sure all of the tests pass.
+You can use the **LinkExtractorTest** class to test your **LinkExtractor** implementation.  Make sure all of the tests pass.
 
 ### `Crawler` class
 
-Coming soon.
+The **Crawler** class implements a "web crawl":
+
+* It starts at a page named by a starting URL
+* The starting URL is added to a queue
+* While the queue is not empty:
+    1. Extract the URL
+    2. Ignore the URL if it names a page that has already been visited; otherwise,
+    3. The page named by the URL is loaded, and the links are extracted
+    4. The links are convered to absolute canonical form (using the `getReferencedURL` method)
+    5. Links which refer to valid pages are added to a queue 
+
+This algorithm is implemented in the `crawl` method, and is a form of the *breadth-first search* algorithm.
+
+Your task is to complete the following methods:
+
+* `alreadyVisited`
+* `markVisited`
+* `recordBrokenLink`
+* `getVisited`
+* `getBrokenLinks`
+
+Each method is described by a comment.
+
+You will need to read the code in the `crawl` method carefully to understand the role of each of these methods in the crawling algorithm.
+
+The **FileCrawlerTest** class has unit tests for the **Crawler** class: make sure these pass.  You can also try the **HttpCrawlerTest** class, which runs the same tests as **FileCrawlerTest**, but loads web pages from the course website rather than from files.
 
 # Hints and specifications
 
@@ -292,11 +321,17 @@ Points may be deducted for poor coding style such as non-private fields, inconsi
 
 Milestone 2:
 
-* `LinkExtractor` fields: 7%
-* `LinkExtractor` constructor: 8% 
-* `LinkExtractor` `processLine` method: 30%
-* `LinkExtractor` `getExtractedLinks` method 5%
-* `Crawler` class: 50% (more precise breakdown coming soon)
+* **LinkExtractor** class:
+    * fields: 7%
+    * constructor: 8% 
+    * `processLine` method: 30%
+    * `getExtractedLinks`: method 5%
+* **Crawler** class:
+    * `alreadyVisited`: 10%
+    * `markVisited`: 10%
+    * `recordBrokenLink`: 10%
+    * `getVisited`: 10%
+    * `getBrokenLinks`: 10%
 
 # Submitting
 
