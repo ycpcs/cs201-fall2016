@@ -25,7 +25,7 @@ Welcome to the website for CS 201, Fundamentals of Computer Science II, at York 
 * [JDK 8 API documentation](https://docs.oracle.com/javase/8/docs/api/)
 
 ## News
-
+* **Dec 9** &mdash; [Assignment 6](assign/assign06.html) has been updated with a fix for the **FileCrawlerTest** test class.
 * **Dec 6** &mdash; [Assignment 6](assign/assign06.html) has been updated with complete requirements for Milestone 2.
 * **Dec 5** &mdash; [Assignment 6](assign/assign06.html) has been updated with a hint about how to split a URL path into components.
 * **Dec 5** &mdash; [Assignment 6](assign/assign06.html) has been updated with a skeleton project for Milestone 2, and information about one of the two classes you will be implementing in Milestone 2.

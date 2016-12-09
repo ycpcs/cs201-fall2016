@@ -22,6 +22,10 @@ title: "Assignment 6: Web Crawler"
 
 * Describe requirements for the **Crawler** class
 
+*Update 12/9*:
+
+* See below for a fix for the **FileCrawlerTest** class on Windows computers.
+
 # Getting started
 
 ## Milestone 1
@@ -283,6 +287,22 @@ Each method is described by a comment.
 You will need to read the code in the `crawl` method carefully to understand the role of each of these methods in the crawling algorithm.
 
 The **FileCrawlerTest** class has unit tests for the **Crawler** class: make sure these pass.  You can also try the **HttpCrawlerTest** class, which runs the same tests as **FileCrawlerTest**, but loads web pages from the course website rather than from files.
+
+*Update: 12/9*: Please replace the `getStartURL` method in the **FileCrawlerTest** class with the following one:
+
+{% highlight java %}
+@Override
+public URL getStartURL() throws Exception {
+    File baseDir = new File(".").getCanonicalFile();
+    return new URL("file:" +
+        baseDir.toString().replace('\\', '/').replace("H:", "//storage/home") +
+        "/exampleSite/index.html");
+}
+{% endhighlight %}
+
+This should allow **FileCrawlerTest** to run correctly on the Windows computers in KEC.  Note that this test will probably *not* run correctly on other Windows computers.  It should run correctly on all Linux and Mac computers.
+
+In any case, the **HttpCrawlerTest** class should run correctly on all computers (as long as there is a network connection), and its tests are equivalent to those in **FileCrawlerTest**.
 
 # Hints and specifications
 
